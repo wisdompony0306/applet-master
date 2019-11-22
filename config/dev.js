@@ -1,10 +1,10 @@
 // NOTE H5 端使用 devServer 实现跨域，需要修改 package.json 的运行命令，加入环境变量
 const isH5 = process.env.CLIENT_ENV === 'h5'
-const HOST = '"http://demongao.free.idcfengye.com"' // 公司
+// const HOST = '"http://demongao.free.idcfengye.com"' // 公司
 // const HOST = '"http://127.0.0.1:8443"' // 公司
 // const HOST = '"http://192.168.0.102:8443"' // 个人
 
-// const HOST = '"https://coupon.demongao.com/api"' // 个人
+const HOST = '"https://coupon.demongao.com/api"' // 个人
 const HOST_M = '"http://192.168.0.102:8443"'
 
 

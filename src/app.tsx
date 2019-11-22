@@ -36,7 +36,7 @@ class App extends Component {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: '淘好券',
+      navigationBarTitleText: '考试指南',
       navigationBarTextStyle: 'black'
     },
     tabBar: {
@@ -50,7 +50,7 @@ class App extends Component {
           iconPath: "./assets/tab-bar/home.png",
           selectedIconPath: "./assets/tab-bar/home-active.png",
           text: "首页"
-        }, 
+        },
         {
           pagePath: "pages/super-search/super-search",
           iconPath: "./assets/tab-bar/search.png",
@@ -70,19 +70,19 @@ class App extends Component {
     showTpwd: false
   }
 
-  componentWillMount() {}
+  componentWillMount() { }
 
   componentDidMount() {
     this.updateHandle()
   }
 
-  componentDidShow () {}
+  componentDidShow() { }
 
-  componentDidHide () {}
+  componentDidHide() { }
 
-  componentCatchError () {}
+  componentCatchError() { }
 
-  componentDidCatchError () {}
+  componentDidCatchError() { }
 
   // 版本更新机制
   updateHandle = () => {
@@ -116,7 +116,7 @@ class App extends Component {
   }
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Provider store={store}>
         <Home />

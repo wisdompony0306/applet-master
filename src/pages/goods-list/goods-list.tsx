@@ -22,7 +22,7 @@ type PageStateProps = {
 }
 
 type PageDispatchProps = {
-  dispatchSearchGoodsList: ({}:goodsListReq) => any
+  dispatchSearchGoodsList: ({ }: goodsListReq) => any
 }
 
 type PageOwnProps = {}
@@ -52,16 +52,16 @@ interface GoodsListPage {
   state: PageState
 }
 @withLogin()
-@connect(state => state.goodsList, {...actions})
-class GoodsListPage extends Component{
+@connect(state => state.goodsList, { ...actions })
+class GoodsListPage extends Component {
   config: Config = {
     navigationBarTitleText: '超级搜索',
     navigationBarBackgroundColor: '#ea4940',
     navigationBarTextStyle: 'white',
     // navigationStyle: 'custom'
   }
-  
-  constructor (props) {
+
+  constructor(props) {
     super(props)
     this.state = {
       loaded: false,
@@ -71,13 +71,13 @@ class GoodsListPage extends Component{
       hasMore: true,
       q: '',
       materialId: 2836,
-      title: '淘好券',
+      title: '学校列表',
       scrollTop: null,
       materialType: '',
       goodsItemType: 'card',
       isShowGoBack: false
     }
-    const {title, q, materialId, materialType, goodsItemType} = this.$router.params
+    const { title, q, materialId, materialType, goodsItemType } = this.$router.params
     this.setState({
       materialType,
       title,
@@ -88,45 +88,45 @@ class GoodsListPage extends Component{
   }
 
   componentWillMount() {
-    const {title} = this.state
-    Taro.setNavigationBarTitle({title: title})
-    this.loadGdoosList({isStart: true})
+    const { title } = this.state
+    Taro.setNavigationBarTitle({ title: title })
+    this.loadGdoosList({ isStart: true })
   }
-  componentDidMount () {}
-  componentWillReceiveProps (nextProps) {}
+  componentDidMount() { }
+  componentWillReceiveProps(nextProps) { }
   // scrollerView 滚动监听
   scrollHandle(e) {
-    const { isShowGoBack} = this.state
+    const { isShowGoBack } = this.state
     const { scrollTop } = e.detail
     const windowHeight = Taro.getSystemInfoSync().windowHeight
-    if (scrollTop > windowHeight) !isShowGoBack && this.setState({isShowGoBack: true})
-    else isShowGoBack && this.setState({isShowGoBack: false})
+    if (scrollTop > windowHeight) !isShowGoBack && this.setState({ isShowGoBack: true })
+    else isShowGoBack && this.setState({ isShowGoBack: false })
   }
   // 返回顶部
-  goBackHandle () {
-    this.setState({scrollTop: 0}, () => {this.setState({scrollTop: null})})
+  goBackHandle() {
+    this.setState({ scrollTop: 0 }, () => { this.setState({ scrollTop: null }) })
   }
   // 获取筛选商品列表
   reLoadGoodsList(sortData) {
-    this.setState({sortData, scrollTop: 0}, () => {
-      this.loadGdoosList({isStart: true})
+    this.setState({ sortData, scrollTop: 0 }, () => {
+      this.loadGdoosList({ isStart: true })
     })
   }
   // 获取商品列表
-  loadGdoosList ({isStart}: {isStart: boolean, sortData?: goodsListReq}) {
-    const {hasMore, loading} = this.state
+  loadGdoosList({ isStart }: { isStart: boolean, sortData?: goodsListReq }) {
+    const { hasMore, loading } = this.state
     if (!hasMore || loading) return
-    isStart && Taro.showLoading({title: '加载中...'})
+    isStart && Taro.showLoading({ title: '加载中...' })
     this.setState({
       pageNo: isStart ? 1 : this.state.pageNo + 1,
       loading: true
     }, () => {
-      const {q, materialId, pageNo, pageSize, sortData} = this.state
-      let payload: goodsListReq = materialId ? {pageNo, pageSize, materialId} : {pageNo, pageSize}
+      const { q, materialId, pageNo, pageSize, sortData } = this.state
+      let payload: goodsListReq = materialId ? { pageNo, pageSize, materialId } : { pageNo, pageSize }
       if (q) payload.q = q;
-      payload = {...payload, ...sortData}
+      payload = { ...payload, ...sortData }
       this.props.dispatchSearchGoodsList(payload).then(res => {
-        this.setState({ loaded: true, loading: false, scrollTop: null})
+        this.setState({ loaded: true, loading: false, scrollTop: null })
         if (res.list.length === 0 && pageNo !== 1) this.setState({ hasMore: false })
         isStart && Taro.hideLoading()
       }).catch(() => {
@@ -140,17 +140,17 @@ class GoodsListPage extends Component{
     let url = `/pages/goods-detail/goods-detail?goodsId=${goods.goodsId}`
     if (goods.clickUrl) url = `${url}&clickUrl=${encodeURIComponent(goods.clickUrl)}`
     if (goods.couponShareUrl) url = `${url}&couponShareUrl=${encodeURIComponent(goods.couponShareUrl)}`
-    Taro.navigateTo({url})
+    Taro.navigateTo({ url })
   }
   // 上拉加载
-  loadRecommend = () => {this.loadGdoosList({isStart: false})}
+  loadRecommend = () => { this.loadGdoosList({ isStart: false }) }
   // 分享
-  onShareAppMessage (object) {
-    const {q, materialId, title} = this.state
+  onShareAppMessage(object) {
+    const { q, materialId, title } = this.state
     let urlQuery = ''
     if (q) urlQuery = `q=${q}`
     else urlQuery = `materialId=${materialId}`
-    
+
     return {
       title: '省钱购物优惠券助手，助你省钱的小程序',
       path: `/pages/goods-list/goods-list?title=${title}&${urlQuery}`
@@ -159,7 +159,7 @@ class GoodsListPage extends Component{
 
   render() {
     const { list } = this.props
-    const {q, loading, scrollTop, materialId, materialType, goodsItemType, isShowGoBack} = this.state
+    const { q, loading, scrollTop, materialId, materialType, goodsItemType, isShowGoBack } = this.state
     const showSortTool = !!q
     const showSubMaterialTool = !q && materialType
     if (!this.state.loaded) {
@@ -168,9 +168,9 @@ class GoodsListPage extends Component{
     return (
       <View className='goods-list'>
         {/* 筛选工具栏 - 超级搜索(物料搜索api)*/}
-        {showSortTool && <SortTool sort-tool-class='goods-list__sort-tool' onChange={this.reLoadGoodsList}/>}
+        {showSortTool && <SortTool sort-tool-class='goods-list__sort-tool' onChange={this.reLoadGoodsList} />}
         {/* 筛选工具 - 物料推荐api */}
-        {showSubMaterialTool && <SubMaterialTool sub-material-tool-class='goods-list__sub-material-tool' onChange={this.reLoadGoodsList} materialType={materialType} materialId={materialId}/>}
+        {showSubMaterialTool && <SubMaterialTool sub-material-tool-class='goods-list__sub-material-tool' onChange={this.reLoadGoodsList} materialType={materialType} materialId={materialId} />}
         {/* 商品列表 */}
         <ScrollView
           scrollY

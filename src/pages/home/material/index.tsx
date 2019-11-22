@@ -23,12 +23,12 @@ class SwiperBanner extends Component {
   clickHandle = (item) => {
     let url = `/pages/goods-list/goods-list?title=${item.title}&materialId=${item.materialId}`
     if (item.materialType) url = `${url}&materialType=${item.materialType}`;
-    Taro.navigateTo({url})
+    Taro.navigateTo({ url })
   }
-  render () {
+  render() {
     const list = [
       {
-        title: '好券直播',
+        title: '在线直播',
         icon: hqzbImg,
         color: '#F00',
         bgColor: '#efefef',
@@ -36,7 +36,7 @@ class SwiperBanner extends Component {
         materialType: 'hqzb'
       },
       {
-        title: '大额券榜',
+        title: '资料推荐',
         icon: couponImg,
         color: '#F00',
         bgColor: '#efefef',
@@ -44,33 +44,12 @@ class SwiperBanner extends Component {
         materialType: 'deq'
       },
       {
-        title: '品牌尖货',
+        title: '品牌学校',
         icon: ppqImg,
         color: '#F00',
         bgColor: '#efefef',
         materialId: 3786,
         materialType: 'ppq'
-      },
-      {
-        title: '有好货',
-        icon: yhhImg,
-        color: '#F00',
-        bgColor: '#efefef',
-        materialId: 4092
-      },
-      {
-        title: '潮流范',
-        icon: clfImg,
-        color: '#F00',
-        bgColor: '#efefef',
-        materialId: 4093
-      },
-      {
-        title: '特惠',
-        icon: thImg,
-        color: '#F00',
-        bgColor: '#efefef',
-        materialId: 4093
       }
     ]
     return (
@@ -81,13 +60,13 @@ class SwiperBanner extends Component {
             scrollX={true}
           >
             {list.map((item, index) => (
-              <View 
+              <View
                 key={index}
                 className='scrollview__item'
                 onClick={this.clickHandle.bind(this, item)}
               >
-                <View className='scrollview__item--icon' style={postcss({backgroundColor: item.bgColor})}>
-                  <Image lazyLoad className='scrollview__item--icon-img' src={item.icon}/>
+                <View className='scrollview__item--icon' style={postcss({ backgroundColor: item.bgColor })}>
+                  <Image lazyLoad className='scrollview__item--icon-img' src={item.icon} />
                 </View>
                 <View className='scrollview__item-title'><Text>{item.title}</Text></View>
               </View>

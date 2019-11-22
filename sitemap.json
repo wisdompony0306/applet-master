@@ -1,0 +1,34 @@
+{
+  "rules": [
+    {
+      "action": "action",
+      "page": "pages/book-list/book-list",
+      "params": [
+        "q"
+      ],
+      "matching": "inclusive",
+      "priority": 999
+    },
+    {
+      "action": "action",
+      "page": "pages/book-detail/book-detail",
+      "params": [
+        "goodsId"
+      ],
+      "matching": "inclusive",
+      "priority": 998
+    },
+    {
+      "action": "action",
+      "page": "pages/super-search/super-search",
+      "matching": "inclusive",
+      "priority": 997
+    },
+    {
+      "action": "action",
+      "page": "pages/home/home",
+      "matching": "inclusive",
+      "priority": 100
+    }
+  ]
+}

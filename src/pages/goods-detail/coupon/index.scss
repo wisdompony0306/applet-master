@@ -1,5 +1,5 @@
 @import "@/styles/theme.scss";
-.goods-detail-coupon{
+.goods-detail-course{
   padding: 30px 20px;
   $bg-color: #ecf0f3;
   background-color: $bg-color;
@@ -100,12 +100,12 @@
     &-left{
       color: $bg-color;
       padding: 30px 30px 30px 60px;
-      .coupon-amount{
+      .course-amount{
         margin-bottom: 10px;
         font-weight: bold;
         font-size: 16PX;
       }
-      .coupon-text{
+      .course-text{
         font-size: 12PX;
         word-spacing: -2px;
         &--first{

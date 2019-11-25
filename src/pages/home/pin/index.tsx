@@ -25,8 +25,8 @@ export default class Pin extends Component<PageOwnProps> {
 
   // 获取分享信息
   getShareMsg = (goods) => {
-    const {jddPrice, origPrice} = goods
-    const discountPrice = Math.round((parseFloat(jddPrice + ''))* 100) / 100
+    const { jddPrice, origPrice } = goods
+    const discountPrice = Math.round((parseFloat(jddPrice + '')) * 100) / 100
     const originPrice = origPrice
     return {
       goodsId: goods.goodsId,
@@ -40,16 +40,16 @@ export default class Pin extends Component<PageOwnProps> {
   handleClick = (goods) => {
     const shareMsg = this.getShareMsg(goods)
     let url = `/pages/goods-detail/goods-detail${Utils.urlEncode(shareMsg)}`
-    Taro.navigateTo({url})
+    Taro.navigateTo({ url })
   }
 
   //
   bannerClickHandle = (item) => {
     const url = `/pages/goods-list/goods-list?title=${item.title}&materialId=${item.materialId}`
-    Taro.navigateTo({url})
+    Taro.navigateTo({ url })
   }
-  
-  render () {
+
+  render() {
     const { banner: { picUrls = [] }, list } = this.props
     return (
       <View className='home-pin'>
@@ -65,10 +65,10 @@ export default class Pin extends Component<PageOwnProps> {
             </View>
           ))}
         </View>
-        
+
         <HomeTitle
-          title='聚划算拼团'
-          link={`/pages/goods-list/goods-list?title=聚划算拼团&materialId=4071&goodsItemType=pin`}
+          title='频道'
+          link={`/pages/goods-list/goods-list?title=频道&materialId=4071&goodsItemType=pin`}
         />
         <View className='home-pin__wrap'>
           <Swiper
@@ -78,7 +78,7 @@ export default class Pin extends Component<PageOwnProps> {
             indicatorActiveColor='rgb(178, 42, 49)'
           >
             {list.map((group, index) => (
-              
+
               <SwiperItem
                 key={index}
                 className='home-pin__swiper-item'
@@ -91,7 +91,6 @@ export default class Pin extends Component<PageOwnProps> {
                       src={item.goodsImageUrl}
                     />
                     <View className='home-pin__item-info'>
-                      <Text className='home-pin__item-price'>{`拼团价¥${item.jddPrice}`}</Text>
                       <Text className='home-pin__item-origin'>¥{item.origPrice}</Text>
                     </View>
                     <View className='home-pin__item-num'>

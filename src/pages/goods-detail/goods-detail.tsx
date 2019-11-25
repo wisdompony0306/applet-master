@@ -9,7 +9,7 @@ import {addGoodsClickRecord} from './api'
 import {dispatchGoodsGetInfo, dispatchUpdateGoodsInfo, dispatchGoodsConvert, dispatchGoodsTpwdCreate} from '@/actions/goods-detail'
 import Gallery from './gallery'
 import Info from './info'
-import Coupon from './coupon'
+import course from './course'
 // import Seller from './seller'
 import PhotoDesc from './photo-desc'
 import Footer from './footer'
@@ -171,7 +171,7 @@ class GoodsDetail extends Component{
           {/* 商品价格信息 */}
           <Info data={detail}/>
           {/* 商品优惠券信息 */}
-          <Coupon data={detail} onClick={this.getCoupon}/>
+          <course data={detail} onClick={this.getCoupon}/>
           {/* 商铺信息 */}
           {/* {seller && <Seller data={seller}/>} */}
           {/* 商品图片 */}

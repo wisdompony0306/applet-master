@@ -7,7 +7,7 @@ const sassImportor = function (url) {
   }
 }
 const config = {
-  projectName: 'coupon',
+  projectName: 'course',
   date: '2019-3-2',
   designWidth: 750,
   deviceRatio: {
@@ -46,6 +46,7 @@ const config = {
     '@/reducers': path.resolve(__dirname, '..', 'src/reducers'),
     '@/styles': path.resolve(__dirname, '..', 'src/styles'),
     '@/decorator': path.resolve(__dirname, '..', 'src/decorator'),
+    '@/mock': path.resolve(__dirname, '..', 'src/mock/mock.js'),
     '@/superBridge': path.resolve(__dirname, '..', 'src/utils/super-bridge.js')
   },
   copy: {

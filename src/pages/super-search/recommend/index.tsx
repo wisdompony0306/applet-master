@@ -25,7 +25,7 @@ class Search extends Component {
   state: Readonly <PageState> = initialState
   // defaultProps 可以被定义为组件类的一个属性，用以为类设置默认的属性。这对于未定义（undefined）的属性来说有用，而对于设为空（null）的属性并没用。
   static defaultProps = {
-    type: 'coupon',
+    type: 'course',
     list: []
   }
 

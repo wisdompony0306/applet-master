@@ -47,6 +47,9 @@
       ],
       "@/superBridge": [
         "src/utils/super-bridge.js"
+      ],
+      "@/mock": [
+        "./src/mock/mock.js"
       ]
     }
   },

@@ -37,7 +37,7 @@ class CardGoodsItem extends Component {
     const shareMsg = this.getShareMsg(goods)
     // const _userType = userType ? '天猫' : null
     return (
-      <View className='goods-item goods-item--coupon' onClick={this.handleClick.bind(this, shareMsg)}>
+      <View className='goods-item goods-item--course' onClick={this.handleClick.bind(this, shareMsg)}>
         <View className='goods-item--coupon__left'>
           {goods.goodsImageUrl && <Image lazyLoad className='goods-item--coupon__left-item-img' src={goods.goodsImageUrl} />}
         </View>
@@ -50,7 +50,7 @@ class CardGoodsItem extends Component {
             <Text className='goods-item--coupon__content__hd__desc'>{goods.goodsDescription}</Text>
           </View>
           <View className='goods-item--coupon__content__bd'>
-            <View className='coupon'>
+            <View className='course'>
               <View className='coupon__left'><Text>券</Text></View>
               <View className='coupon__right'><Text>{goods.couponAmount}元</Text></View>
             </View>

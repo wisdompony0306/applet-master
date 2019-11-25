@@ -11,7 +11,7 @@ import Material from './material'
 import Search from './search'
 import Pin from './pin'
 import HeadlineNews from './headlineNews'
-import GoodsCouponLive from './goodsCouponLive'
+import TabBar from './tabBar'
 import './home.scss'
 
 import withLogin from '@/decorator/withLogin'
@@ -29,7 +29,7 @@ import withLogin from '@/decorator/withLogin'
 type PageStateProps = {
   home: object,
   pinList: Goods[][],
-  gclList: Goods[]
+  yearLists: yearLists[]
 }
 
 type PageDispatchProps = {
@@ -88,8 +88,8 @@ class Home extends Component {
       this.props.dispatchGclList({ pageNo, pageSize, materialId: materialId })
     })
   }
-  // 好券直播
-  goodsCouponLiveHandle(data) {
+  // 首页tab和列表
+  tabChangeHandle(data) {
     Taro.showLoading({ title: '加载中...' })
     this.setState({ materialId: data.materialId, pageNo: 1 }, () => {
       const { pageNo, pageSize, materialId } = this.state
@@ -109,7 +109,7 @@ class Home extends Component {
   }
   // 返回顶部
   goBackHandle() {
-    this.setState({ iViewId: 'goods-coupon-live' }, () => { this.setState({ iViewId: null }) })
+    this.setState({ iViewId: 'goods-course-live' }, () => { this.setState({ iViewId: null }) })
   }
   // 分享
   onShareAppMessage() {
@@ -124,7 +124,11 @@ class Home extends Component {
     return (
       <View className='home'>
         {/* 搜索框 */}
-        <Search />
+        {/* <Search /> */}
+        <TabBar
+          onChange={this.tabChangeHandle}
+          list={this.props.yearLists}
+        />
         <ScrollView
           scrollY
           scrollWithAnimation
@@ -138,15 +142,15 @@ class Home extends Component {
         >
 
           {/* banner图 */}
-          <Banner list={[
-            { rank: 1, title: '学校推荐', img: 'http://kcpcdn.demongao.com/coupon/banner1.jpg', materialId: 13371 },
-            { rank: 2, title: '资料推荐', img: 'http://kcpcdn.demongao.com/coupon/banner2.jpg', materialId: 3786 }
-          ]} />
+          {/* <Banner list={[
+            { rank: 1, title: '学校推荐', img: 'http://kcpcdn.demongao.com/course/banner1.jpg', materialId: 13371 },
+            { rank: 2, title: '资料推荐', img: 'http://kcpcdn.demongao.com/course/banner2.jpg', materialId: 3786 }
+          ]} /> */}
 
           {/* 物料推荐 */}
-          <Material />
+          {/* <Material /> */}
 
-          {/* 免费拼团 */}
+          {/* 频道 */}
           {/* <Pin
             banner={{
               targetJump: '/pages/webview/index?url=https%3A%2F%2Fact.you.163.com%2Fact%2Fstatic%2FCbxof0jA78.html&activity_channel_id=yx_default_fwtz_30',
@@ -155,7 +159,7 @@ class Home extends Component {
                 materialId: 6708,
                 url: 'https://yanxuan.nosdn.127.net/3dd17d374a2283e8b42a0ef2cfd7d1cf.png'
               }],
-              title: '特价全集锦'
+              title: '全集锦'
             }}
             list={this.props.pinList}
           /> */}
@@ -163,12 +167,9 @@ class Home extends Component {
           {/* 头条新闻 */}
           {/* <HeadlineNews headline-news-class='home__headline-news'></HeadlineNews> */}
 
-          {/* 好券直播 */}
-          {/* <View className='goods-coupon-live--alink' id='goods-coupon-live'></View> */}
-          {/* <GoodsCouponLive
-            onChange={this.goodsCouponLiveHandle}
-            list={this.props.gclList}
-          /> */}
+          {/* 直播 */}
+          {/* <View className='goods-course-live--alink' id='goods-course-live'></View> */}
+
           {/* <Loading /> */}
         </ScrollView>
         {isShowGoBack && <AtButton className='go-back' onClick={this.goBackHandle}><AtIcon prefixClass='iconfont' value='huojian' size='24px' color='#999999' /></AtButton>}

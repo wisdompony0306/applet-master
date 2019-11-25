@@ -28,11 +28,11 @@ interface JoinMember {
 
 @withLogin()
 @withParams()
-@(connect as any)(({globalData}) => ({
+@(connect as any)(({ globalData }) => ({
   userInfo: globalData.userInfo,
   params: globalData.params
-}),{})
-class JoinMember extends Component{
+}), {})
+class JoinMember extends Component {
   config: Config = {
     navigationBarTitleText: '成为会员',
     enablePullDownRefresh: true
@@ -41,16 +41,16 @@ class JoinMember extends Component{
     loaded: false,
     loading: false
   }
-  render () {
-    const {userInfo} = this.props
-    const {} = this.state
+  render() {
+    const { userInfo } = this.props
+    const { } = this.state
     const param = {
       // tkUserId: userInfo && userInfo.tkUserId,
       tkUserId: 23,
       inviterCode: 'T3BWHE'
     }
-    console.log(`"渠道": \nhttps://coupon.demongao.com/channel?tkUserId=23}`)
-    console.log(`"会员": \nhttps://coupon.demongao.com/member?tkUserId=23`)
+    console.log(`"渠道": \nhttps://course.demongao.com/channel?tkUserId=23}`)
+    console.log(`"会员": \nhttps://course.demongao.com/member?tkUserId=23`)
     return (
       <View>
         <Text>{`http://127.0.0.1:8080/${Utils.urlEncode(param)}`}</Text>

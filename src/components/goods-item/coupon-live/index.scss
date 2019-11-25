@@ -1,5 +1,5 @@
 @import "@/styles/theme.scss";
-.goods-item--coupon{
+.goods-item--course{
   $height: 220px;
   box-sizing: border-box;
   width: 100%;
@@ -45,13 +45,13 @@
         @include lamp-clamp(1);
       }
     }
-    
+
     &__bd{
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
-      .coupon{
+      .course{
         border: 1px solid $primary-color;
         display: flex;
         flex-flow: row nowrap;
@@ -158,7 +158,7 @@
           text-decoration-color: $text-color-lighter;
         }
       }
-      
+
     }
   }
 }

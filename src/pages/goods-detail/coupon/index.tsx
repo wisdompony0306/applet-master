@@ -29,7 +29,7 @@ class Gallery extends Component {
     const _couponAmount = data.couponAmountString || (data.couponAmount && data.couponAmount !== '0' && `${data.couponAmount}元`) || '暂无优惠券'
     
     return (
-      <View className='goods-detail-coupon'>
+      <View className='goods-detail-course'>
         <View className='goods-detail-coupon__wrap' onClick={this.props.onClick}>
           <View className='goods-detail-coupon__wrap-icon'>
             <View className='goods-detail-coupon__wrap-icon--left'></View>
@@ -39,10 +39,10 @@ class Gallery extends Component {
             ))}
           </View>
           <View className='goods-detail-coupon__wrap-left'>
-            <Text className='coupon-amount'>{data.couponInfo || _couponAmount}</Text>
+            <Text className='course-amount'>{data.couponInfo || _couponAmount}</Text>
             <View>
-              <Text className='coupon-text coupon-text--first'>D I S C O U N T</Text>
-              <Text className='coupon-text'>C O U P O N</Text>
+              <Text className='course-text course-text--first'>D I S C O U N T</Text>
+              <Text className='course-text'>C O U P O N</Text>
               </View>
           </View>
           <View className='goods-detail-coupon__wrap-center'>

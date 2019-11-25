@@ -1,4 +1,4 @@
-import { 
+import {
   ADD_SEARCH_HISTORY,
   CLEAR_SEARCH_HISTORY,
   USER_LOGIN,
@@ -7,7 +7,7 @@ import {
 } from '@/constants/global'
 import Taro from '@tarojs/taro'
 import SuperBridge from '@/utils/super-bridge'
-const COMMON = 'coupon@wxd9704e466db93481!'
+const COMMON = 'course@wxd9704e466db93481!'
 
 const SEARCHHISTORY = `${COMMON}search_history`
 const INITIAL_STATE = {
@@ -17,9 +17,9 @@ const INITIAL_STATE = {
   searchHistory: SuperBridge.getStorageSync({ key: SEARCHHISTORY }) || [],
   // url参数/scene参数
   params: {}
-} as {userInfo: any, searchHistory: string[], params: any}
+} as { userInfo: any, searchHistory: string[], params: any }
 
-export default function globalReducer (state = INITIAL_STATE, action) {
+export default function globalReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     // 添加搜索记录
     case ADD_SEARCH_HISTORY:
@@ -34,9 +34,9 @@ export default function globalReducer (state = INITIAL_STATE, action) {
       return update_user_info(state, action)
     // 更新url/scene参数
     case UPDATE_PARAMS:
-      return {...state, params: action.payload}
+      return { ...state, params: action.payload }
     default:
-       return state
+      return state
   }
 }
 // 添加搜索记录
@@ -54,8 +54,8 @@ const add_search_history = (state, action) => {
 }
 // 清空搜索记录
 const clear_search_history = (state) => {
-  Taro.removeStorage({key: SEARCHHISTORY})
-  Taro.showToast({title: '清除成功'})
+  Taro.removeStorage({ key: SEARCHHISTORY })
+  Taro.showToast({ title: '清除成功' })
   return {
     ...state,
     searchHistory: []

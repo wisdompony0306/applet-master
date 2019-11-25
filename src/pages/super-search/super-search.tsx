@@ -138,7 +138,7 @@ class SuperSearch extends Component{
           {/* 历史记录 */}
           <History list={this.props.searchHistory} onClear={this.clearSearchHistory}/>
           {/* 好物推荐 */}
-          <Recommend type={'coupon'} list={this.props.list}/>
+          <Recommend type={'course'} list={this.props.list}/>
         </ScrollView>
       </View>
     )

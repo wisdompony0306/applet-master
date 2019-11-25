@@ -23,7 +23,7 @@ class SwiperBanner extends Component {
         <View className='home__search-wrap' onClick={this.handlePrevent}>
           {/* <Image lazyLoad className='home__search-img' src={searchIcon} /> */}
           <Text className='home__search-txt'>
-            {`考试科目 学校资料`}
+            {`考试时间 报考资料`}
           </Text>
         </View>
       </View>

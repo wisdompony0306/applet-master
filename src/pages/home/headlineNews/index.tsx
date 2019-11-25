@@ -7,7 +7,7 @@ import './index.scss'
 const defaultProps = {}
 const initialState = {}
 type IProps = {}
-type IState = Readonly <typeof initialState>
+type IState = Readonly<typeof initialState>
 
 class Gallery extends Component {
   readonly props: Readonly<IProps> = defaultProps
@@ -16,7 +16,7 @@ class Gallery extends Component {
   // 利用 externalClasses 定义段定义若干个外部样式类 这个特性从小程序基础库版本 1.9.90 开始支持
   static externalClasses = ['headline-news-class']
 
-  render () {
+  render() {
     const { } = this.props
     const { } = this.state
     return (
@@ -32,7 +32,7 @@ class Gallery extends Component {
             circular
             autoplay
           >
-            {['为回馈新老会员,佣金返利额度再次提高', '淘宝渠道授权通知'].map((title, index) => (
+            {['为回馈新老用户'].map((title, index) => (
               <SwiperItem className='headline-news__content__swiper-item' key={index}>
                 <View className='notice-type'><Text className='text'>[公告]</Text></View>
                 <View className='notice-title'><Text className='text' numberOfLines={2}>{title}</Text></View>

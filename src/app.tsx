@@ -47,20 +47,20 @@ class App extends Component {
       list: [
         {
           pagePath: "pages/home/home",
-          iconPath: "./assets/tab-bar/home.png",
-          selectedIconPath: "./assets/tab-bar/home-active.png",
-          text: "首页"
+          iconPath: "./assets/tab-bar/home-tab.png",
+          selectedIconPath: "./assets/tab-bar/home-tab-active.png",
+          text: "课程列表"
         },
         {
           pagePath: "pages/super-search/super-search",
-          iconPath: "./assets/tab-bar/search.png",
-          selectedIconPath: "./assets/tab-bar/search-active.png",
-          text: "搜索"
+          iconPath: "./assets/tab-bar/search-tab.png",
+          selectedIconPath: "./assets/tab-bar/search-tab-active.png",
+          text: "我的课程"
         },
         {
           pagePath: "pages/me/me",
-          iconPath: "./assets/tab-bar/me.png",
-          selectedIconPath: "./assets/tab-bar/me-active.png",
+          iconPath: "./assets/tab-bar/me-tab.png",
+          selectedIconPath: "./assets/tab-bar/me-tab-active.png",
           text: "个人中心"
         }
       ]

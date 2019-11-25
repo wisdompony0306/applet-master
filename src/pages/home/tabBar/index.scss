@@ -1,0 +1,28 @@
+@import "@/styles/theme.scss";
+.tab-change{
+  height: 100%;
+  &__hd{
+    text-align: center;
+    font-size: 16PX;
+    color: $primary-color;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 10px;
+    width: 100%;
+    background: #ffffff;
+    z-index: 9;
+  }
+  &__bd{
+    position: relative;
+    padding-top: 138px;
+    &__list{
+      &__subitem{
+        background-color: #ffffff;
+        border-radius: 6px;
+      }
+    }
+  }
+}

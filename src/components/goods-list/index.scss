@@ -6,7 +6,7 @@
   .goods-list__item{
     margin-top: 20px;
   }
-  &--card, &--coupon, &--pin{
+  &--card, &--course, &--pin{
     display: flex;
     flex-flow: row wrap;
     .goods-list__item{
@@ -19,7 +19,7 @@
       }
     }
   }
-  &--coupon-live {
+  &--course-live {
     padding: 0 20px;
     .goods-list__item{}
   }

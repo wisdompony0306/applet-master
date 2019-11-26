@@ -1,14 +1,14 @@
 import { ComponentClass } from 'react'
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import {AtCard, AtGrid} from 'taro-ui'
+import { AtCard, AtGrid } from 'taro-ui'
 import './index.scss'
 import SuperBridge from '@/utils/super-bridge';
 
 type PageOwnProps = {}
 type PageState = {}
 
-class SwiperBanner extends Component {
+class MyOrders extends Component {
   static options = {
     addGlobalClass: true
   }
@@ -20,15 +20,15 @@ class SwiperBanner extends Component {
   static externalClasses = ['my-orders-class']
 
   clickHandle(item, index) {
-    SuperBridge.toast({title: ' 订单系统正在开发中, 敬请期待~'})
+    SuperBridge.toast({ title: ' 订单系统正在开发中, 敬请期待~' })
     // SuperBridge.navigateTo({url: `/pages/order-list/order-list?status=${item.status}`})
   }
 
-  render () {
+  render() {
     return (
       <View className='my-orders-class my-orders'>
         <AtCard
-          title='我的订单'
+          title='我的浏览记录'
           extra='查看全部'
         >
           <AtGrid hasBorder={false} columnNum={4} mode={'square'} onClick={this.clickHandle} data={
@@ -39,35 +39,8 @@ class SwiperBanner extends Component {
                   value: 'quanbudingdan',
                   size: 24
                 },
-                value: '全部订单',
+                value: '全部记录',
                 status: 0
-              },
-              {
-                iconInfo: {
-                  prefixClass: 'iconfont',
-                  value: 'wuliu',
-                  size: 24
-                },
-                value: '已付款',
-                status: 1
-              },
-              {
-                iconInfo: {
-                  prefixClass: 'iconfont',
-                  value: 'yijiesuan',
-                  size: 24
-                },
-                value: '已结算',
-                status: 2
-              },
-              {
-                iconInfo: {
-                  prefixClass: 'iconfont',
-                  value: 'lajitong',
-                  size: 24
-                },
-                value: '已失效',
-                status: 3
               }
             ]
           } />
@@ -76,4 +49,4 @@ class SwiperBanner extends Component {
     )
   }
 }
-export default SwiperBanner as ComponentClass<PageOwnProps, PageState>
+export default MyOrders as ComponentClass<PageOwnProps, PageState>

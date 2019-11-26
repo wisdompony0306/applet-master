@@ -28,8 +28,8 @@ interface GoodsDetail {
   readonly state: Readonly<PageState>
 }
 
-@connect(state => state.goodsList, {...actions})
-class GoodsDetail extends Component{
+@connect(state => state.goodsList, { ...actions })
+class GoodsDetail extends Component {
   config: Config = {
     navigationBarTitleText: '个人中心',
     // enablePullDownRefresh: true
@@ -38,7 +38,7 @@ class GoodsDetail extends Component{
     loaded: false,
     loading: false
   }
-  render () {
+  render() {
     return (
       <View className='me'>
         <ScrollView
@@ -47,19 +47,19 @@ class GoodsDetail extends Component{
           style={{ height: getWindowHeight(true) }}
         >
           {/* 用户基础信息 */}
-          <Account my-account-class='me__wrap__account'/>
+          <Account my-account-class='me__wrap__account' />
 
           {/* 收益金额 */}
-          <IncomeGrid />
+          {/* <IncomeGrid /> */}
 
           {/* 我的订单 */}
           <MyOrders my-orders-class='me__wrap__my-orders' />
 
           {/* VIP会员中心 */}
-          <VipMember vip-member-class='me__wrap__vip-member'/>
+          {/* <VipMember vip-member-class='me__wrap__vip-member'/> */}
 
           {/* 必备工具 */}
-          <EssentialTool essential-tool-class='me__wrap__essential-tool'/>
+          {/* <EssentialTool essential-tool-class='me__wrap__essential-tool'/> */}
         </ScrollView>
       </View>
     )

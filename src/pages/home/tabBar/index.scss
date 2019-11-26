@@ -1,6 +1,5 @@
 @import "@/styles/theme.scss";
 .tab-change{
-  height: 100%;
   &__hd{
     text-align: center;
     font-size: 16PX;
@@ -20,7 +19,6 @@
     padding-top: 138px;
     &__list{
       &__subitem{
-        background-color: #ffffff;
         border-radius: 6px;
       }
     }

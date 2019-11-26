@@ -125,10 +125,6 @@ class Home extends Component {
       <View className='home'>
         {/* 搜索框 */}
         {/* <Search /> */}
-        <TabBar
-          onChange={this.tabChangeHandle}
-          list={this.props.yearLists}
-        />
         <ScrollView
           scrollY
           scrollWithAnimation
@@ -140,7 +136,10 @@ class Home extends Component {
           scroll-animation-duration={200}
           onScroll={this.scrollHandle}
         >
-
+          <TabBar
+            onChange={this.tabChangeHandle}
+            list={this.props.yearLists}
+          />
           {/* banner图 */}
           {/* <Banner list={[
             { rank: 1, title: '学校推荐', img: 'http://kcpcdn.demongao.com/course/banner1.jpg', materialId: 13371 },
